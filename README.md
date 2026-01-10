@@ -1,6 +1,11 @@
-# AdGuard Home en Hardware Reciclado: Tu Propio DNS Sinkhole
+# AdGuard Home en Hardware Reciclado
+
+![License](https://img.shields.io/github/license/AlanMeglio/AdGuard)
+![GitHub stars](https://img.shields.io/github/stars/AlanMeglio/AdGuard)
 
 Transformá esa notebook vieja en un escudo de privacidad para toda tu red.
+
+---
 
 ## 🎯 ¿Qué es esto?
 
@@ -16,6 +21,31 @@ Este proyecto nace de la idea de **costo cero y reciclaje tecnológico**. En lug
 ![1-neofetch](https://github.com/user-attachments/assets/a6814d32-0c78-4112-a071-1c0e958cb29f)
 
 *El servidor corriendo en Ubuntu Server con recursos mínimos.*
+
+---
+
+## 📖 Guías
+
+### Primeros Pasos
+- [Requisitos de Hardware](#-requisitos-de-hardware)
+- [FAQ - Preguntas Frecuentes](#-faq)
+- [Comparación con otras soluciones](docs/adguard-vs-pihole.md)
+
+### Configuración
+- [Instalación en Ubuntu Server](#-instalación-paso-a-paso)
+- [Configuración de IP Estática](docs/ip-estatica.md)
+- [Configuración del Router](#-configuración-del-router)
+- [Lista de Routers Compatibles](docs/routers-compatibles.md)
+
+### Instalación Avanzada
+- [Instalación en Raspberry Pi](#-instalación-en-raspberry-pi)
+- [Instalación con Docker](#-instalación-con-docker)
+- [Instalación en Máquina Virtual](#-instalación-en-máquina-virtual)
+
+### Mantenimiento
+- [Backup y Restauración](#-mantenimiento)
+- [Actualización de AdGuard Home](#actualizar-adguard-home)
+- [Solución de Problemas](#-solución-de-problemas)
 
 ---
 
@@ -37,13 +67,26 @@ Este proyecto es muy liviano, ideal para equipos antiguos:
 
 ## 🚀 Instalación Paso a Paso
 
-### 1. Preparación del Sistema
+### Método 1: Instalación Rápida (Recomendado)
 
-Antes de instalar AdGuard Home, asegurate de tener configurada una **IP Estática** en tu servidor. Podés seguir la [guía de configuración de IP estática](docs/ip-estatica.md).
+El script automático instala y configura todo por vos:
 
-### 2. Configuración del Firewall
+```bash
+curl -s -S -L https://raw.githubusercontent.com/AlanMeglio/AdGuard/main/scripts/install.sh | sudo bash
+```
 
-Abrí los puertos necesarios para el funcionamiento de AdGuard:
+**Tiempo estimado:** 5 minutos
+
+### Método 2: Instalación Manual
+
+<details>
+<summary>Hacé click para ver los pasos manuales</summary>
+
+#### 1. Preparación del Sistema
+
+Asegurate de tener una **IP Estática** configurada. Seguí la [guía de configuración de IP estática](docs/ip-estatica.md).
+
+#### 2. Configuración del Firewall
 
 ```bash
 sudo ufw allow ssh
@@ -54,14 +97,12 @@ sudo ufw allow 3000/tcp
 sudo ufw enable
 ```
 
-**Puertos explicados:**
+**Puertos:**
 - `53`: Puerto DNS (obligatorio)
 - `80` o `3000`: Panel de administración web
 - `22`: SSH para acceso remoto
 
-### 3. Instalación de AdGuard Home
-
-Ejecutá el script oficial de instalación automatizada:
+#### 3. Instalación de AdGuard Home
 
 ```bash
 curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
@@ -69,61 +110,122 @@ curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/s
 
 ![2-install](https://github.com/user-attachments/assets/05521794-ca77-4ea7-85f0-48c67e2dfb77)
 
-*Script de instalación finalizado mostrando IP y puertos.*
+#### 4. Configuración Inicial
 
-### 4. Configuración Inicial
+Abrí el navegador e ingresá a: `http://[IP-DE-TU-SERVIDOR]:3000`
 
-Una vez instalado, abrí el navegador en cualquier dispositivo de tu red e ingresá a:
-
-```
-http://[IP-DE-TU-SERVIDOR]:3000
-```
-
-Seguí el asistente de configuración:
-
-1. **Puerto de administración**: Dejá `3000` o cambialo a `80`
-2. **Puerto DNS**: `53` (obligatorio, no cambiar)
-3. **Creá un usuario y contraseña** para el panel de administración
-4. **Configurá los DNS upstream**: Dejá los valores por defecto o usá:
-   - Cloudflare: `1.1.1.1` y `1.0.0.1`
-   - Quad9: `9.9.9.9` y `149.112.112.112`
+Seguí el asistente:
+1. Puerto de administración: `3000` o `80`
+2. Puerto DNS: `53` (obligatorio)
+3. Creá usuario y contraseña
+4. Configurá DNS upstream (Cloudflare: `1.1.1.1` y `1.0.0.1`)
 
 ![3-dashboard](https://github.com/user-attachments/assets/610ca5a4-6b95-4d89-9d4a-df6eaaea0d55)
 
-*Panel de control principal bloqueando rastreadores.*
+</details>
+
+---
+
+## 🔧 Instalación en Otras Plataformas
+
+### 🍓 Instalación en Raspberry Pi
+
+<details>
+<summary>Hacé click para ver instrucciones</summary>
+
+AdGuard Home funciona perfectamente en Raspberry Pi (incluso en la Pi Zero):
+
+```bash
+# 1. Instalá Raspberry Pi OS Lite (sin escritorio)
+# 2. Actualizá el sistema
+sudo apt update && sudo apt upgrade -y
+
+# 3. Ejecutá el script de instalación
+curl -s -S -L https://raw.githubusercontent.com/AlanMeglio/AdGuard/main/scripts/install.sh | sudo bash
+```
+
+**Consumo de recursos en Pi:**
+- RAM: ~80-120MB
+- CPU: <5%
+- Temperatura: +5°C sobre idle
+
+</details>
+
+### 🐳 Instalación con Docker
+
+<details>
+<summary>Hacé click para ver instrucciones</summary>
+
+Si preferís usar Docker:
+
+```bash
+# Crear directorio para configuración
+mkdir -p ~/adguard/work ~/adguard/conf
+
+# Ejecutar contenedor
+docker run -d \
+  --name adguardhome \
+  --restart unless-stopped \
+  -v ~/adguard/work:/opt/adguardhome/work \
+  -v ~/adguard/conf:/opt/adguardhome/conf \
+  -p 53:53/tcp -p 53:53/udp \
+  -p 3000:3000/tcp \
+  adguard/adguardhome
+```
+
+Accedé al panel: `http://localhost:3000`
+
+</details>
+
+### 💻 Instalación en Máquina Virtual
+
+<details>
+<summary>Hacé click para ver instrucciones</summary>
+
+Configuración recomendada para VM:
+
+**VirtualBox / VMware:**
+- 1 vCPU
+- 1GB RAM
+- 10GB disco
+- Adaptador de red en modo Bridge
+
+**Hyper-V:**
+```powershell
+New-VM -Name "AdGuard" -MemoryStartupBytes 1GB -Generation 2
+Set-VMProcessor -VMName "AdGuard" -Count 1
+```
+
+Luego seguí la instalación normal de Ubuntu Server.
+
+</details>
 
 ---
 
 ## 🌐 Configuración del Router
 
-Para que AdGuard funcione en **toda tu red**, configurá tu router para que use el servidor como DNS:
+Para que AdGuard funcione en **toda tu red**, configurá tu router:
 
-1. Entrá a la configuración de tu router (generalmente `192.168.0.1` o `192.168.1.1`)
-2. Buscá la sección **DHCP** o **LAN Settings**
-3. Configurá los DNS:
-   - **DNS Primario**: IP de tu servidor AdGuard (ej: `192.168.1.100`)
-   - **DNS Secundario**: La misma IP del servidor o dejalo vacío
+1. Entrá a la configuración (usualmente `192.168.0.1` o `192.168.1.1`)
+2. Buscá **DHCP** o **LAN Settings**
+3. **DNS Primario**: IP de tu servidor AdGuard
+4. **DNS Secundario**: Misma IP o vacío
 
-> ⚠️ **IMPORTANTE**: NO pongas DNS públicos como `8.8.8.8` en el secundario, ya que los dispositivos saltarán el bloqueo de AdGuard.
+> ⚠️ **IMPORTANTE**: NO pongas DNS públicos (8.8.8.8) en el secundario.
+
+**¿Tu router no está en la lista?** Consultá la [guía de routers compatibles](docs/routers-compatibles.md) con configuraciones específicas para ISPs argentinos.
 
 ### Verificación
 
-Para verificar que está funcionando correctamente:
-
-1. Desde cualquier dispositivo, visitá: https://adguard.com/en/test.html
-2. Deberías ver el mensaje: **"AdGuard DNS is working"**
+Visitá https://adguard.com/en/test.html desde cualquier dispositivo. Deberías ver: **"AdGuard DNS is working"**
 
 ---
 
-## 🔧 Configuración Avanzada (Opcional)
+## 🔧 Configuración Avanzada
 
 ### Listas de Bloqueo Recomendadas
 
-AdGuard viene con listas por defecto, pero podés agregar más:
-
-**En el panel de AdGuard:**
-1. Andá a **Filtros** → **Listas de filtros DNS**
-2. Agregá estas listas populares:
+En el panel: **Filtros** → **Listas de filtros DNS**
 
 ```
 AdGuard DNS Filter (incluido por defecto)
@@ -131,13 +233,15 @@ Peter Lowe's List: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adbl
 StevenBlack Hosts: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 ```
 
-### HTTPS para el Panel Web
+### DNS Encriptado (DoH/DoT)
 
-Si querés acceder al panel de forma segura desde afuera de tu red:
+Configurá DNS upstream encriptado en **Configuración** → **Configuración DNS**:
 
-1. Instalá un certificado SSL (Let's Encrypt)
-2. Configuralo en **Configuración** → **Encriptación**
-3. Usá un servicio como DuckDNS para tener un dominio gratuito
+```
+https://1.1.1.1/dns-query (Cloudflare DoH)
+https://dns.google/dns-query (Google DoH)
+tls://1.1.1.1 (Cloudflare DoT)
+```
 
 ---
 
@@ -145,57 +249,40 @@ Si querés acceder al panel de forma segura desde afuera de tu red:
 
 ### Veo publicidad en mi celular Android
 
-**Causa**: Android tiene una función llamada "DNS Privado" que ignora la configuración de red local.
+**Causa:** DNS Privado activo.
 
-**Solución**: 
-1. Andá a **Ajustes** → **Conexión y compartir** → **DNS Privado**
-2. Ponelo en **DESACTIVADO**
-
-En algunos móviles está en: **Ajustes** → **Redes e Internet** → **DNS privado**
+**Solución:** 
+`Ajustes` → `Conexión y compartir` → `DNS Privado` → **DESACTIVADO**
 
 ---
 
-### Instagram o Apps se congelan un momento
+### Instagram o Apps se congelan
 
-**Causa**: A veces se bloquean dominios necesarios para la carga inicial (Falsos Positivos).
+**Causa:** Falsos positivos.
 
-**Solución**: 
-Agregá reglas de excepción en el panel de AdGuard:
-
-1. Andá a **Filtros** → **Reglas personalizadas**
-2. Agregá estas líneas:
-
+**Solución:** Agregá excepciones en `Filtros` → `Reglas personalizadas`:
 ```
 @@||graph.instagram.com^
 @@||graph.facebook.com^
-@@||api.instagram.com^
 ```
 
 ---
 
-### Internet anda lento en algunos sitios
+### Internet lento en algunos sitios
 
-**Causa**: Conflicto con la resolución IPv6 de tu proveedor.
+**Causa:** Conflicto IPv6.
 
-**Solución**:
-1. En AdGuard, andá a **Configuración** → **Configuración DNS**
-2. Activá **"Deshabilitar la resolución de direcciones IPv6"**
+**Solución:** 
+`Configuración` → `Configuración DNS` → Activar **"Deshabilitar IPv6"**
 
 ---
 
-### El servidor no arranca después de reiniciar
+### El servidor no arranca tras reiniciar
 
-**Causa**: AdGuard no se configuró como servicio de inicio automático.
-
-**Solución**:
+**Solución:**
 ```bash
 sudo systemctl enable AdGuardHome
 sudo systemctl start AdGuardHome
-```
-
-Verificá el estado con:
-```bash
-sudo systemctl status AdGuardHome
 ```
 
 ---
@@ -204,29 +291,41 @@ sudo systemctl status AdGuardHome
 
 ### Actualizar AdGuard Home
 
-Desde el panel web: **Configuración** → **General** → **Buscar actualizaciones**
+**Desde el panel:** `Configuración` → `General` → `Buscar actualizaciones`
 
-O desde terminal:
+**Desde terminal:**
 ```bash
-sudo /opt/AdGuardHome/AdGuardHome -s stop
-sudo /opt/AdGuardHome/AdGuardHome --update
-sudo /opt/AdGuardHome/AdGuardHome -s start
+bash scripts/update.sh
 ```
 
-### Hacer Backup de la Configuración
+### Hacer Backup
 
-**Desde el panel**: **Configuración** → **General** → **Exportar configuración**
-
-**Desde terminal**:
 ```bash
-sudo cp /opt/AdGuardHome/AdGuardHome.yaml ~/adguard-backup-$(date +%Y%m%d).yaml
+bash scripts/backup.sh
+```
+
+Backups guardados en: `~/adguard-backups/`
+
+**Automatización (backup diario):**
+```bash
+crontab -e
+# Agregar:
+0 3 * * * /ruta/a/scripts/backup.sh
+```
+
+### Restaurar Backup
+
+```bash
+sudo systemctl stop AdGuardHome
+sudo tar -xzf ~/adguard-backups/adguard_backup_FECHA.tar.gz -C /opt/AdGuardHome/
+sudo systemctl start AdGuardHome
 ```
 
 ---
 
 ## 📈 Estadísticas de Uso Real
 
-En mi caso, después de 1 mes de uso continuo:
+Después de 1 mes de uso continuo:
 
 - **Consultas totales**: ~500,000
 - **Consultas bloqueadas**: ~180,000 (36%)
@@ -234,62 +333,87 @@ En mi caso, después de 1 mes de uso continuo:
 - **Consumo de RAM**: 150-200MB
 - **Uso de CPU**: <5% promedio
 
-> Esto equivale a **no descargar ~2.5GB de publicidad** en un mes.
-
----
-
-## 🤝 Contribuciones
-
-¿Encontraste un error o querés mejorar la guía? 
-
-1. Hacé un fork del repositorio
-2. Creá una rama para tu feature (`git checkout -b feature/mejora`)
-3. Hacé commit de tus cambios (`git commit -am 'Agrego mejora X'`)
-4. Push a la rama (`git push origin feature/mejora`)
-5. Abrí un Pull Request
-
----
-
-## 📚 Recursos Adicionales
-
-- [Documentación oficial de AdGuard Home](https://github.com/AdguardTeam/AdGuardHome/wiki)
-- [Guía de configuración de IP estática](docs/ip-estatica.md) *(próximamente)*
-- [Lista de compatibilidad de routers](docs/routers-compatibles.md) *(próximamente)*
-- [Comparación con Pi-hole](docs/adguard-vs-pihole.md) *(próximamente)*
-
----
-
-## 📝 Créditos
-
-- **Software**: [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome), desarrollado por AdGuard Team
-- **Guía de implementación**: Realizada por [Alan Meglio](https://github.com/AlanMeglio) con fines educativos
-- **Comunidad**: Gracias a todos los que reportaron issues y mejoraron esta guía
-
----
-
-## ⚖️ Licencia
-
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE) - mirá el archivo LICENSE para más detalles.
+> Equivale a **no descargar ~2.5GB de publicidad** mensual.
 
 ---
 
 ## ❓ FAQ
 
-**¿Funciona con cualquier router?**  
-Sí, siempre que tu router permita cambiar los servidores DNS en la configuración DHCP.
+<details>
+<summary><strong>¿Funciona con cualquier router?</strong></summary>
 
-**¿Puedo usar esto en una Raspberry Pi?**  
-¡Absolutamente! De hecho, es el hardware ideal para este proyecto.
+Sí, siempre que permita cambiar los DNS en la configuración DHCP. El 99% de routers hogareños lo permiten.
+</details>
 
-**¿Afecta la velocidad de navegación?**  
-En general, la mejora. Al bloquear anuncios, las páginas cargan más rápido. La latencia DNS es mínima (~5-15ms en red local).
+<details>
+<summary><strong>¿Puedo usar Raspberry Pi?</strong></summary>
 
-**¿Bloquea anuncios en YouTube?**  
-No completamente. Los anuncios de YouTube están integrados en el video mismo, pero sí bloquea rastreadores y algunos anuncios display.
+¡Absolutamente! Es el hardware ideal. Funciona hasta en la Pi Zero.
+</details>
 
-**¿Necesito conocimientos técnicos avanzados?**  
-No. Si sabés instalar Ubuntu Server y acceder a la configuración de tu router, podés hacer esto.
+<details>
+<summary><strong>¿Afecta la velocidad?</strong></summary>
+
+No. De hecho mejora la velocidad al bloquear anuncios. La latencia DNS es mínima (~5-15ms).
+</details>
+
+<details>
+<summary><strong>¿Bloquea anuncios en YouTube?</strong></summary>
+
+No completamente. Los anuncios de YouTube están integrados en el video, pero sí bloquea rastreadores.
+</details>
+
+<details>
+<summary><strong>¿Necesito conocimientos técnicos?</strong></summary>
+
+No. Si sabés instalar Ubuntu Server y acceder al router, podés hacer esto.
+</details>
 
 ---
 
-Si tenés dudas sobre esta implementación, **[abrí un Issue](https://github.com/AlanMeglio/AdGuard/issues)** y te ayudamos. 🚀
+## 🤝 Contribuciones
+
+¿Querés mejorar este proyecto? Lee la [guía de contribución](CONTRIBUTING.md).
+
+### Formas de contribuir:
+- 📝 Reportar bugs
+- ✨ Sugerir mejoras
+- 📚 Mejorar documentación
+- 🌐 Agregar routers compatibles
+- 💻 Enviar pull requests
+
+---
+
+## 📚 Recursos
+
+- [Documentación oficial AdGuard](https://github.com/AdguardTeam/AdGuardHome/wiki)
+- [Configuración de IP estática](docs/ip-estatica.md)
+- [Routers compatibles](docs/routers-compatibles.md)
+- [Comparación con Pi-hole](docs/adguard-vs-pihole.md)
+
+---
+
+## 📝 Créditos
+
+- **Software**: [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome) por AdGuard Team
+- **Guía**: [Alan Meglio](https://github.com/AlanMeglio)
+
+---
+
+## ⚖️ Licencia
+
+[MIT License](LICENSE) - Usá, modificá y compartí libremente.
+
+---
+
+## 🌟 ¿Te fue útil?
+
+Si este proyecto te ayudó:
+- ⭐ Dale una estrella al repositorio
+- 🔄 Compartilo con otros
+- 📺 Suscribite al [canal de YouTube](#) (link a tu canal)
+- 💬 [Abrí un issue](https://github.com/AlanMeglio/AdGuard/issues) si tenés dudas
+
+---
+
+**Hecho con ❤️ en Argentina** 🇦🇷
