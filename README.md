@@ -2,7 +2,7 @@ AdGuard Home en Hardware Reciclado: Tu Propio DNS Sinkhole
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Transformá esa notebook vieja en un escudo de privacidad para toda tu red.
 
-Este proyecto nace de la idea de costo cero y reciclaje tecnológico. En lugar de comprar hardware nuevo, reutilizamos una notebook en desuso (o una Máquina Virtual) para montar un servidor DNS local que bloquea publicidad y rastreadores en todos los dispositivos de la casa (Smart TV, celulares, consolas, PC) sin instalar software en cada uno.
+Este proyecto nace de la idea de **costo cero y reciclaje tecnológico**. En lugar de comprar hardware nuevo, reutilizamos una notebook en desuso (o una Máquina Virtual) para montar un servidor DNS local que bloquea publicidad y rastreadores en todos los dispositivos de la casa (Smart TV, celulares, consolas, PC) sin instalar software en cada uno.
 
 ¿Por qué hacer esto?
 
@@ -16,18 +16,20 @@ Este proyecto nace de la idea de costo cero y reciclaje tecnológico. En lugar d
 
 
 
-<img width="979" height="512" alt="1-neofetch" src="https://github.com/user-attachments/assets/a6814d32-0c78-4112-a071-1c0e958cb29f" />
+![Neofetch del Servidor]<img width="979" height="512" alt="1-neofetch" src="https://github.com/user-attachments/assets/a6814d32-0c78-4112-a071-1c0e958cb29f" />
 
 
  El servidor corriendo en Ubuntu Server con recursos mínimos.
 
-Requisitos
+Requisitos de Hardware
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Hardware: Notebook, PC antigua o Máquina Virtual (1vCPU y 512MB RAM sobran).
 
-Conexión: Preferentemente por cable Ethernet (RJ45) al router para menor latencia.
-
-Sistema Operativo: Ubuntu Server (LTS) o cualquier distro Linux.
+Este proyecto es muy liviano, ideal para equipos antiguos.
+* **CPU:** Cualquier procesador de 64-bit o ARM (Raspberry Pi).
+* **RAM:** 512MB mínimo (1GB recomendado para listas grandes).
+* **Almacenamiento:** 500MB libres mínimos.
+* **Red:** Conexión por cable Ethernet (RJ45) altamente recomendada para reducir latencia.
+* **OS:** Ubuntu Server 24.04 LTS (o cualquier distro Linux).
 
 Instalación Paso a Paso
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
