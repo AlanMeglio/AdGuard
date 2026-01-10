@@ -14,10 +14,8 @@ Este proyecto nace de la idea de **costo cero y reciclaje tecnológico**. En lug
 
 -Hardware Reciclado: Dale una segunda vida a equipos antiguos (consume muy pocos recursos).
 
-
-
-![Neofetch del Servidor]<img width="979" height="512" alt="1-neofetch" src="https://github.com/user-attachments/assets/a6814d32-0c78-4112-a071-1c0e958cb29f" />
-
+![Neofetch del Servidor](https://github.com/AlanMeglio/AdGuard/blob/main/1-neofetch.png?raw=true)
+*El servidor corriendo en hardware reciclado con Ubuntu Server.*
 
  El servidor corriendo en Ubuntu Server con recursos mínimos.
 
