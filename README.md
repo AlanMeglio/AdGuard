@@ -30,10 +30,13 @@ Conexión: Preferentemente por cable Ethernet (RJ45) al router para menor latenc
 Sistema Operativo: Ubuntu Server (LTS) o cualquier distro Linux.
 
 Instalación Paso a Paso
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Preparación del Sistema Se recomienda instalar Ubuntu Server en modo headless (sin interfaz gráfica) para maximizar recursos. Una vez instalado, asegurate de tener una IP Estática en el servidor.
 
-Instalación de AdGuard Home Usamos el script de instalación automatizada oficial. Ejecutá este comando en tu terminal:
+Instalación de AdGuard Home:
+
+Usamos el script de instalación automatizada oficial. Ejecutá este comando en tu terminal:
 
 curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
 
