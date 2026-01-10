@@ -7,9 +7,13 @@ Este proyecto nace de la idea de costo cero y reciclaje tecnológico. En lugar d
 ¿Por qué hacer esto?
 
 -Bloqueo a nivel de red: Elimina anuncios en apps y webs antes de que lleguen a tus dispositivos.
+
 -Privacidad: Tus consultas DNS no pasan por Google o tu ISP; vos tenés el control.
+
 -Ahorro de ancho de banda: Al no descargar la publicidad, las páginas cargan más rápido.
+
 -Hardware Reciclado: Dale una segunda vida a equipos antiguos (consume muy pocos recursos).
+
 
 
 <img width="979" height="512" alt="1-neofetch" src="https://github.com/user-attachments/assets/a6814d32-0c78-4112-a071-1c0e958cb29f" />
