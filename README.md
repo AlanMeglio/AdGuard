@@ -11,7 +11,9 @@ Este proyecto nace de la idea de costo cero y reciclaje tecnológico. En lugar d
 -Ahorro de ancho de banda: Al no descargar la publicidad, las páginas cargan más rápido.
 -Hardware Reciclado: Dale una segunda vida a equipos antiguos (consume muy pocos recursos).
 
+
 <img width="979" height="512" alt="1-neofetch" src="https://github.com/user-attachments/assets/a6814d32-0c78-4112-a071-1c0e958cb29f" />
+
 
  El servidor corriendo en Ubuntu Server con recursos mínimos.
 
@@ -31,7 +33,9 @@ Instalación de AdGuard Home Usamos el script de instalación automatizada ofici
 
 curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
 
+
 <img width="1115" height="628" alt="2-install" src="https://github.com/user-attachments/assets/05521794-ca77-4ea7-85f0-48c67e2dfb77" />
+
 
 Script de instalación finalizado mostrando IP y puertos.
 
@@ -45,7 +49,9 @@ Puerto de administración: 80 o 3000.
 
 Puerto DNS: 53 (Obligatorio).
 
+
 <img width="1281" height="958" alt="3-dashboard" src="https://github.com/user-attachments/assets/610ca5a4-6b95-4d89-9d4a-df6eaaea0d55" />
+
 
 Panel de control principal bloqueando rastreadores.
 
@@ -76,6 +82,7 @@ Solución: En AdGuard, andá a Configuración > Configuración DNS y activá "De
 Créditos y Referencias:
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Software: AdGuard Home, desarrollado por AdGuard Team.
+
 Guía de implementación: Realizada por Meglio Alan con fines educativos.
 
 Si tenés dudas sobre esta implementación, ¡no dudes en abrir un Issue!
