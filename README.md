@@ -18,7 +18,7 @@ Este proyecto nace de la idea de **costo cero y reciclaje tecnológico**. En lug
 - **Ahorro de ancho de banda**: Al no descargar la publicidad, las páginas cargan más rápido
 - **Hardware Reciclado**: Dale una segunda vida a equipos antiguos (consume muy pocos recursos)
 
-![Servidor corriendo en Ubuntu Server](https://private-user-images.githubusercontent.com/131933323/534256882-a6814d32-0c78-4112-a071-1c0e958cb29f.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjgwNzgyNDcsIm5iZiI6MTc2ODA3Nzk0NywicGF0aCI6Ii8xMzE5MzMzMjMvNTM0MjU2ODgyLWE2ODE0ZDMyLTBjNzgtNDExMi1hMDcxLTFjMGU5NThjYjI5Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDExMFQyMDQ1NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mN2YyNGQ0ZWM0MjdlM2Y4NjY5N2M0ZDYxMjRlYWYzZmMxY2JlNzYxZTdiOTk2MzgwYWM5ZGIxMTNmMWFmZTY5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.RPyNFpw_fyUbCIl0N6I6qUz_JLbSmSSwJEatWElXqpw)
+![Servidor corriendo en Ubuntu Server]<img width="979" height="512" alt="1-neofetch" src="https://github.com/user-attachments/assets/e3881c6e-316c-4444-88f7-6c7635936041" />
 
 *El servidor corriendo en Ubuntu Server con recursos mínimos.*
 
@@ -108,7 +108,7 @@ sudo ufw enable
 curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
 ```
 
-![Instalación completada](https://private-user-images.githubusercontent.com/131933323/534256895-05521794-ca77-4ea7-85f0-48c67e2dfb77.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjgwNzgyNDcsIm5iZiI6MTc2ODA3Nzk0NywicGF0aCI6Ii8xMzE5MzMzMjMvNTM0MjU2ODk1LTA1NTIxNzk0LWNhNzctNGVhNy04NWYwLTQ4YzY3ZTJkZmI3Ny5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDExMFQyMDQ1NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMTg2NjUxYjUwMWI0MDY0MDUyM2YwOTUxMzM5ZjI2MjNmNGVjNTZiMDM2OTMwZDk1MDZkNWY2N2UzM2FiN2Q1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.XMhOtpYHs4wdvghoDX5aAsCS1P7gFJKXz5a5VI6PbkE)
+![Instalación completada]<img width="1115" height="628" alt="2-install" src="https://github.com/user-attachments/assets/13538a5b-8a72-41c3-ae64-fbce2dcf496f" />
 
 *Script de instalación finalizado mostrando IP y puertos.*
 
@@ -122,7 +122,7 @@ Seguí el asistente:
 3. Creá usuario y contraseña
 4. Configurá DNS upstream (Cloudflare: `1.1.1.1` y `1.0.0.1`)
 
-![Panel de control AdGuard](https://private-user-images.githubusercontent.com/131933323/534256915-610ca5a4-6b95-4d89-9d4a-df6eaaea0d55.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjgwNzgyNDcsIm5iZiI6MTc2ODA3Nzk0NywicGF0aCI6Ii8xMzE5MzMzMjMvNTM0MjU2OTE1LTYxMGNhNWE0LTZiOTUtNGQ4OS05ZDRhLWRmNmVhYWVhMGQ1NS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDExMFQyMDQ1NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05ZjFkZTNiZDk1NmY5ODJjOWQxMzQzODNkNTYzNzhlMmIyYmZiZTljZGZjMjI3ZjNjNDA0M2YxNGZkZjA1ZTllJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.nhL8tu3mmLPFjjNjG1xPhdsVyBnd9drsGlln7wIRfks)
+![Panel de control AdGuard]<img width="1281" height="958" alt="3-dashboard" src="https://github.com/user-attachments/assets/52fe508d-ba93-43ef-bbce-444aafe039cd" />
 
 *Panel de control principal bloqueando rastreadores.*
 
