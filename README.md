@@ -87,6 +87,6 @@ Créditos y Referencias:
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Software: AdGuard Home, desarrollado por AdGuard Team.
 
-Guía de implementación: Realizada por Meglio Alan con fines educativos.
+Guía de implementación: Realizada por Alan Meglio con fines educativos.
 
 Si tenés dudas sobre esta implementación, ¡no dudes en abrir un Issue!
