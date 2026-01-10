@@ -1,4 +1,5 @@
 AdGuard Home en Hardware Reciclado: Tu Propio DNS Sinkhole
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Transformá esa notebook vieja en un escudo de privacidad para toda tu red.
 
 Este proyecto nace de la idea de costo cero y reciclaje tecnológico. En lugar de comprar hardware nuevo, reutilizamos una notebook en desuso (o una Máquina Virtual) para montar un servidor DNS local que bloquea publicidad y rastreadores en todos los dispositivos de la casa (Smart TV, celulares, consolas, PC) sin instalar software en cada uno.
@@ -13,9 +14,9 @@ Este proyecto nace de la idea de costo cero y reciclaje tecnológico. En lugar d
 <img width="979" height="512" alt="1-neofetch" src="https://github.com/user-attachments/assets/a6814d32-0c78-4112-a071-1c0e958cb29f" />
 
  El servidor corriendo en Ubuntu Server con recursos mínimos.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Requisitos
 
+Requisitos
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Hardware: Notebook, PC antigua o Máquina Virtual (1vCPU y 512MB RAM sobran).
 
 Conexión: Preferentemente por cable Ethernet (RJ45) al router para menor latencia.
@@ -33,8 +34,10 @@ curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/s
 <img width="1115" height="628" alt="2-install" src="https://github.com/user-attachments/assets/05521794-ca77-4ea7-85f0-48c67e2dfb77" />
 
 Script de instalación finalizado mostrando IP y puertos.
+
+Configuración Inicial Una vez instalado:
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Configuración Inicial Una vez instalado, abrí el navegador en tu PC principal e ingresá a: http://[IP-DE-TU-SERVIDOR]:3000
+abrí el navegador en tu PC principal e ingresá a: http://[IP-DE-TU-SERVIDOR]:3000
 
 Seguí el asistente de configuración:
 
@@ -55,9 +58,9 @@ Buscá la sección DHCP o LAN Settings.
 En DNS Primario (DNS 1): Poné la IP estática de tu servidor AdGuard.
 
 En DNS Secundario (DNS 2): DEJAR VACÍO o poner la misma IP del servidor. (Nota: Si ponés 8.8.8.8 como secundario, los dispositivos saltarán el bloqueo).
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Solución de Problemas (Troubleshooting)
 
+Solución de Problemas (Troubleshooting)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Veo publicidad en mi celular Android Android tiene una función llamada "DNS Privado" que ignora tu red local.
 
 Solución: Andá a Ajustes > Conexión y compartir > DNS Privado y ponelo en DESACTIVADO.
@@ -69,9 +72,9 @@ Solución: Si notás lag en Instagram, agregá esta regla en Filtros > Reglas pe
 Internet anda lento en algunos sitios Puede ser un conflicto con la resolución IPv6 de tu proveedor.
 
 Solución: En AdGuard, andá a Configuración > Configuración DNS y activá "Deshabilitar la resolución de direcciones IPv6".
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Créditos y Referencias:
 
+Créditos y Referencias:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Software: AdGuard Home, desarrollado por AdGuard Team.
 Guía de implementación: Realizada por Meglio Alan con fines educativos.
 
