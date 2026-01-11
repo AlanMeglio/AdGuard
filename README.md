@@ -233,7 +233,7 @@ El asistente te va a guiar:
 
 4. Hacé click en **"Siguiente"** y luego **"Abrir panel de control"**
 
-![Panel de control AdGuard](https://github.com/user-attachments/assets/52fe508d-ba93-43ef-bbce-444aafe039cd)
+![Panel de control AdGuard]<img width="1227" height="958" alt="4" src="https://github.com/user-attachments/assets/f0909a6c-6762-4652-ba77-0714d3745fef" />
 
 *Panel de control principal bloqueando rastreadores.*
 
