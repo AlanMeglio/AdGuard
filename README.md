@@ -808,4 +808,16 @@ Datos reales después de **1 mes de uso continuo** en casa:
 
 Este proyecto está licenciado bajo [MIT License](LICENSE).
 
-**Resumen**: Podés usar, copiar, modificar, fusionar
+**Resumen**: Podés usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y/o vender copias de este software libremente.
+
+---
+
+## 🌟 ¿Te fue útil?
+
+Si este proyecto te ayudó:
+- ⭐ Dale una estrella al repositorio
+- 🔄 Compartilo con otros
+- 💬 [Abrí un issue](https://github.com/AlanMeglio/AdGuard/issues) si tenés dudas o sugerencias
+- 🤝 Contribuí con mejoras
+
+---
