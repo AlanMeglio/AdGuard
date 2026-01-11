@@ -1,24 +1,24 @@
 ---
 name: Solicitud de Funcionalidad
-about: Sugerí una idea para este proyecto
-title: "[FEAT] "
+about: Sugerí una idea nueva para este proyecto
+title: "[IDEA] "
 labels: enhancement
 assignees: ''
 
 ---
 
-**¿Tu propuesta está relacionada con un problema? Por favor describilo.**
-Una descripción clara y concisa de cuál es el problema. Ej: Siempre me frustra cuando [...]
+**¿Tu propuesta está relacionada con un problema actual?**
+Describilo brevemente. Ej: "Es un bajón tener que editar manualmente el archivo X cada vez que..."
 
-**Describí la solución que te gustaría**
-Una descripción clara y concisa de qué querés que pase.
+**¿Cuál es la solución que te gustaría?**
+Contanos qué funcionalidad te gustaría ver y cómo debería funcionar. Sé lo más claro posible.
 
-**Describí las alternativas que consideraste**
-Una descripción clara y concisa de cualquier solución alternativa o funcionalidad que hayas considerado.
+**¿Consideraste alguna alternativa?**
+¿Hay otra forma de resolverlo que hayas pensado?
 
 **Contexto adicional**
-Cualquier otro contexto o capturas de pantalla sobre el pedido acá.
+Cualquier otro dato, capturas o ejemplos que sirvan para entender mejor tu idea.
 
-**¿Estás dispuesto/a a implementarlo?**
-- [ ] Sí
-- [ ] No
+**¿Te animás a implementarlo vos?**
+- [ ] ¡Sí, de una! (Hago PR)
+- [ ] No, prefiero que lo vea otro.

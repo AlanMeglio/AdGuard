@@ -1,0 +1,20 @@
+! 🇦🇷 Filtros Específicos para Argentina / Latam
+! Agregá esta lista en: Filters > DNS Blocklists > Add blocklist > Add custom list
+! Copiá la URL "raw" de este archivo o subilo en local.
+
+! Diarios y Medios (Detección de AdBlock / Paywalls blandos)
+! Nota: Los paywalls duros son difíciles de sacar por DNS, requieren extensiones.
+||lanacion.com.ar^$script,domain=lanacion.com.ar
+||clarin.com^$script,domain=clarin.com
+
+! Publicidad Local
+||ads.e-planning.net^
+||cedon.e-planning.net^
+||adserver.lamula.pe^
+||ads.mercadolibre.com.ar^
+
+! Trackers Gubernamentales (Ejemplo)
+! ||analytics.argentina.gob.ar^
+
+! Bancos / Fintechs (CUIDADO: No bloquear dominios de login)
+! Acá solo pondríamos trackers de marketing de bancos, no funcionales.

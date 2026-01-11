@@ -1,38 +1,32 @@
 ---
 name: Reporte de Error (Bug)
-about: Creá un reporte para ayudarnos a mejorar
+about: Avisanos si algo se rompió para que lo arreglemos
 title: "[BUG] "
 labels: bug
 assignees: ''
 
 ---
 
-**Describe el bug**
-Una descripción clara y concisa de cuál es el problema.
+**Describí el problema**
+Explicá de forma clara qué está pasando.
 
-**Pasos para reproducir**
-Pasos para reproducir el comportamiento:
-1. Ir a '...'
-2. Ejecutar comando '....'
-3. Ver error
+**Pasos para reproducir el error**
+Contanos cómo llegaste a este error para que podamos reproducirlo:
+1. Fui a '...'
+2. Ejecuté el comando '....'
+3. Apareció el error...
 
-**Comportamiento esperado**
-Una descripción clara y concisa de lo que esperabas que pasara.
+**¿Qué esperabas que pasara?**
+Describí qué debería haber sucedido si todo andaba bien.
 
-**Screenshots**
-Si aplica, agregá capturas de pantalla para explicar tu problema.
+**Capturas de Pantalla / Logs**
+Si tenés capturas o pegaste el log de error, ayuda un montón. Usá bloques de código para los logs.
 
-**Información del Sistema (por favor completar):**
+**Información de tu Sistema:**
  - **OS:** [ej. Ubuntu 22.04 LTS]
  - **Versión AdGuard Home:** [ej. v0.107.43]
- - **Hardware:** [ej. Raspberry Pi 4, PC Antigua intel i3]
- - **Router:** [ej. Fibertel Sagemcom]
-
-**Logs / Salida de terminal**
-Por favor poné los logs o errores dentro de un bloque de código como este:
-```
-Pega tu log acá
-```
+ - **Hardware:** [ej. Raspberry Pi 4, PC Vieja]
+ - **Router:** [ej. Fibertel Sagemcom, Telecentro]
 
 **Contexto adicional**
-Cualquier otro contexto sobre el problema acá.
+Cualquier otro dato que creas relevante.

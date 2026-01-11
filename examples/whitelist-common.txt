@@ -1,0 +1,32 @@
+# ✅ Lista Blanca Común (Whitelist)
+# Dominios que suelen romperse con listas estrictas.
+# Agregá estos en: Filters > DNS allowlists
+
+# Google Services (A veces los links patrocinados de búsqueda fallan sin esto)
+@@||www.googleadservices.com^
+@@||click.google-analytics.com^
+
+# Microsoft / Windows
+@@||login.live.com^
+@@||office.com^
+@@||windowsupdate.com^
+
+# Streaming (Paramount+, PlutoTV suelen usar trackers para verificar geo)
+@@||cbsinteractive.com^
+@@||pluto.tv^
+
+# Redes Sociales (Short links)
+@@||t.co^
+@@||bit.ly^
+@@||l.instagram.com^
+
+# WhatsApp (Web y llamadas)
+@@||whatsapp.com^
+@@||whatsapp.net^
+
+# MercadoLibre / MercadoPago (A veces confundido con ads)
+@@||mercadolibre.com.ar^
+@@||mercadopago.com.ar^
+
+# Sitios del Gobierno (AFIP a veces usa scripts viejos raros)
+@@||afip.gob.ar^

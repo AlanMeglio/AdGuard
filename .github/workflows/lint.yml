@@ -1,0 +1,51 @@
+name: Lint Code Base
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # 1. Verificar Scripts Bash
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: './scripts'
+          severity: warning
+
+  # 2. Verificar Markdown (Docs)
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Validate Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v9
+        with:
+          globs: '**/*.md'
+
+  # 3. Verificar YAML (Configuraciones)
+  yamllint:
+    name: YAML Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Validate YAML
+        uses: ibm/yamllint-action@main
+        with:
+          config_data: |
+            extends: default
+            rules:
+              line-length: disable
