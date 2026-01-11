@@ -13,7 +13,7 @@ Dado que este proyecto está en constante evolución y se basa en software de te
 
 Tomamos la seguridad muy en serio. Si descubrís una vulnerabilidad de seguridad en los scripts de instalación, en la configuración sugerida, o en la documentación, por favor **NO abras un Issue público**.
 
-En su lugar, por favor enviá un reporte por correo electrónico a `alanmeglio@gmail.com`. Intenta incluir:
+En su lugar, por favor enviá un reporte por correo electrónico a `meglioalan@gmail.com`. Intenta incluir:
 *   Descripción detallada de la vulnerabilidad.
 *   Pasos para reproducirla (Proof of Concept).
 *   Impacto potencial.

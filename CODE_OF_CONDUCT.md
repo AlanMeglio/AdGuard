@@ -36,7 +36,7 @@ Este Código de Conducta aplica tanto a espacios del proyecto (repositorios, iss
 
 ## Aplicación
 
-Instancias de comportamiento abusivo, acosador o inaceptable pueden ser reportadas a los administradores del proyecto responsables a través de alanmeglio@gmail.com. Todas las quejas serán revisadas e investigadas puntualmente y de manera justa.
+Instancias de comportamiento abusivo, acosador o inaceptable pueden ser reportadas a los administradores del proyecto responsables a través de meglioalan@gmail.com. Todas las quejas serán revisadas e investigadas puntualmente y de manera justa.
 
 Todos los administradores están obligados a respetar la privacidad y la seguridad de quienes reporten incidentes.
 
