@@ -1,0 +1,119 @@
+# 🛡️ Archivo de Configuración de Ejemplo para AdGuard Home
+# Optimizado para Argentina y Hardware Reciclado
+# Copiar este contenido a /opt/AdGuardHome/AdGuardHome.yaml (hacé backup antes!)
+
+bind_host: 0.0.0.0
+bind_port: 3000
+beta_bind_port: 0
+
+# Autenticación (Será generada automáticamente al instalar, esto es ejemplo)
+users: [] 
+
+# 🌐 Configuración DNS
+dns:
+  bind_hosts:
+  - 0.0.0.0
+  port: 53
+  
+  # Estadísticas (logs)
+  statistics_interval: 3 # Días de retención (bajo para ahorrar SD card)
+  querylog_enabled: true
+  querylog_file_enabled: true
+  querylog_interval: 3 # Días (72h)
+  querylog_size_memory: 1000 # Entradas en RAM
+
+  # 🚀 DNS Upstream (Proveedores a los que preguntamos)
+  # Usamos Cloudflare y Google por velocidad y redundancia
+  upstream_dns:
+  - https://dns.cloudflare.com/dns-query
+  - https://dns.google/dns-query
+  - 1.1.1.1
+  - 8.8.8.8
+
+  # Bootstrap DNS (para resolver los dominios de arriba)
+  bootstrap_dns:
+  - 9.9.9.10
+  - 149.112.112.10
+  - 2620:fe::10
+
+  # Settings de seguridad y velocidad
+  protection_enabled: true
+  blocking_mode: default # Devuelve 0.0.0.0
+  blocking_ipv4: ""
+  blocking_ipv6: ""
+  blocked_response_ttl: 10
+  
+  # Límite de peticiones por segundo para evitar ataques DDoS básicos
+  ratelimit: 20 
+  ratelimit_whitelist: []
+  
+  # Cache para acelerar navegación
+  refuse_any: true
+  edns_client_subnet: false
+  dnssec_enabled: false
+  cache_size: 4194304 # 4MB
+  cache_ttl_min: 0
+  cache_ttl_max: 0
+  cache_optimistic: false # Poner true si notás lentitud, pero puede dar datos viejos
+
+# 🚫 Filtros y Bloqueos
+filters:
+  - enabled: true
+    url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+    name: AdGuard DNS filter
+    id: 1
+  - enabled: true
+    url: https://adaway.org/hosts.txt
+    name: AdAway Default Blocklist
+    id: 2
+  # Lista Recomendada para Argentina / Latam (si existiera una específica estable)
+  # - enabled: true
+  #   url: https://raw.githubusercontent.com/Ejemplo/ListaArgentina/main/hosts.txt
+  #   name: Lista Argentina
+  #   id: 3
+
+whitelist_filters: []
+
+# Bloqueo de servicios específicos (descomentar para activar)
+blocked_services:
+#  - id: facebook
+#    name: Facebook
+#  - id: tiktok
+#    name: TikTok
+#  - id: whatsapp
+#    name: WhatsApp
+
+# 📡 Configuración DHCP (Desactivada por defecto)
+# Habilitar SOLO si tu router no deja cambiar DNS
+dhcp:
+  enabled: false
+  interface_name: eth0 # Cambiar según tu interfaz (ip a)
+  # local_domain_name: lan
+  # dhcpv4:
+  #   gateway_ip: 192.168.1.1
+  #   subnet_mask: 255.255.255.0
+  #   range_start: 192.168.1.100
+  #   range_end: 192.168.1.250
+  #   lease_duration: 86400
+  #   icmp_timeout_msec: 1000
+  #   options: []
+  # dhcpv6:
+  #   range_start: ""
+  #   lease_duration: 86400
+  #   ra_slaac_only: false
+  #   ra_allow_slaac: false
+
+tls:
+  enabled: false
+  # server_name: ""
+  # force_https: false
+  # port_https: 443
+  # port_dns_over_tls: 853
+  # port_dns_over_quic: 784
+
+os:
+  group: ""
+  user: ""
+  rlimit_nofile: 0
+
+schema_version: 12
